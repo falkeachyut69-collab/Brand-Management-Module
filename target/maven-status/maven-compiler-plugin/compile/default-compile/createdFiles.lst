@@ -6,6 +6,7 @@ com\example\groupmanagement\entity\Brand.class
 com\example\groupmanagement\entity\Chain.class
 com\example\groupmanagement\controller\BrandController.class
 com\example\groupmanagement\repository\ChainRepository.class
+com\example\groupmanagement\config\DataLoader.class
 com\example\groupmanagement\service\ChainService.class
 com\example\groupmanagement\repository\BrandRepository.class
 com\example\groupmanagement\controller\ChainController.class
