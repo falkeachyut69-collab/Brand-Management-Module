@@ -1,0 +1,14 @@
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\config\CorsConfig.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\controller\BrandController.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\controller\ChainController.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\controller\GroupController.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\dto\ChainRequest.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\entity\Brand.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\entity\Chain.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\entity\Group.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\GroupmanagementApplication.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\repository\BrandRepository.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\repository\ChainRepository.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\repository\GroupRepository.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\service\BrandService.java
+C:\Users\falke\Downloads\groupmanagement\backend\src\main\java\com\example\groupmanagement\service\ChainService.java
