@@ -1,9 +1,12 @@
 package com.example.groupmanagement.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "chains")
 public class Chain {
 
     @Id
@@ -12,73 +15,64 @@ public class Chain {
 
     private String companyName;
 
-    @Column(unique = true)
     private String gstNumber;
+
+   @ManyToOne
+@JoinColumn(name = "group_id")
+@JsonIgnoreProperties({"chains"})  // prevents loop
+private Group group;
 
     private boolean isActive = true;
 
-    private LocalDateTime createdAt = LocalDateTime.now();
-    private LocalDateTime updatedAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "group_id")
-    private Group group;
+    @PrePersist
+    public void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
 
-    // ✅ GETTERS & SETTERS
+    @PreUpdate
+    public void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
+
+    // GETTERS & SETTERS
 
     public Long getChainId() {
         return chainId;
-    }
-
-    public void setChainId(Long chainId) {
-        this.chainId = chainId;
     }
 
     public String getCompanyName() {
         return companyName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
     public String getGstNumber() {
         return gstNumber;
-    }
-
-    public void setGstNumber(String gstNumber) {
-        this.gstNumber = gstNumber;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     public Group getGroup() {
         return group;
     }
 
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public void setGstNumber(String gstNumber) {
+        this.gstNumber = gstNumber;
+    }
+
     public void setGroup(Group group) {
         this.group = group;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

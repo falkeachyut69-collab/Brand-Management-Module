@@ -1,26 +1,49 @@
 package com.example.groupmanagement.controller;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
 import com.example.groupmanagement.entity.Group;
-import com.example.groupmanagement.repository.GroupRepository;
+import com.example.groupmanagement.service.GroupService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/groups")
 @CrossOrigin("*")
 public class GroupController {
 
-    @Autowired
-    private GroupRepository repo;
+    private final GroupService service;
 
-    @PostMapping
-    public Group add(@RequestBody Group g) {
-        return repo.save(g);
+    public GroupController(GroupService service) {
+        this.service = service;
     }
 
+    // ✅ CREATE
+    @PostMapping
+    public Group add(@RequestBody Group g) {
+        return service.add(g);
+    }
+
+    // ✅ READ
     @GetMapping
     public List<Group> getAll() {
-        return repo.findAll();
+        return service.getAll();
+    }
+
+    // ✅ UPDATE
+    @PutMapping("/{id}")
+    public Group update(@PathVariable Long id, @RequestBody Group g) {
+        return service.update(id, g);
+    }
+
+    // ✅ DELETE (SOFT)
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
+    }
+
+    // ✅ TOGGLE ACTIVE
+    @PatchMapping("/{id}")
+    public Group toggle(@PathVariable Long id) {
+        return service.toggle(id);
     }
 }
